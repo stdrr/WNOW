@@ -4,7 +4,11 @@
     Articles from Wikipedia
 @endsection
 
-<?php $base_route = '/news';?>
+<?php 
+    $base_route = '/news';
+    $current_category = ['For_you'=>'', 'Politics'=>'', 'Economy'=>'', 'Science_tech'=>'', 'Sports'=>'', 'Entertainment'=>''];
+    $current_category[$category] = 'current-nav-item';
+?>
 
 @section('content')
     <div class="container-fluid">
@@ -12,22 +16,22 @@
         <div class="container-fluid border-bottom py-4 sticky-top bg-white shadow">
             <ul class="nav justify-content-center sticky-top">
                 <li class="nav-item">
-                  <a class="nav-link text-uppercase" href="{{$base_route}}/For_you"><strong>for you</strong></a>
+                  <a class="nav-link text-uppercase {{$current_category['For_you']}}" href="{{$base_route}}/For_you"><strong>for you</strong></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{$current_category['Politics']}}">
                   <a class="nav-link text-uppercase" href="{{$base_route}}/Politics"><strong>politics</strong></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{$current_category['Economy']}}">
                   <a class="nav-link text-uppercase" href="{{$base_route}}/Economy"><strong>economy</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="{{$base_route}}/Science_tech"><strong>science and tech</strong></a>
+                    <a class="nav-link text-uppercase {{$current_category['Science_tech']}}" href="{{$base_route}}/Science_tech"><strong>science and tech</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="{{$base_route}}/Sports"><strong>sports</strong></a>
+                    <a class="nav-link text-uppercase {{$current_category['Sports']}}" href="{{$base_route}}/Sports"><strong>sports</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-uppercase" href="{{$base_route}}/Entertainment"><strong>entertainment</strong></a>
+                    <a class="nav-link text-uppercase {{$current_category['Entertainment']}}" href="{{$base_route}}/Entertainment"><strong>entertainment</strong></a>
                 </li>
             </ul>
             

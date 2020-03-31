@@ -28,19 +28,15 @@ class PagesController extends Controller
      */
     public function index($category)
     {
-        if($category=='For_you') 
-        {
-            return redirect('/news');
-        }
-        else if($category=='Science_tech') 
+        $pages = NULL;
+        if($category=='Science_tech') 
         {
             $pages = DB::table('pages')->where('category', 'Science and Technology')->latest('timestamp')->get();
-            return view('index', compact('pages'));
         }
         else {
             $pages = DB::table('pages')->where('category', $category)->latest('timestamp')->get();
-            return view('index', compact('pages'));
         }
+        return view('index', compact('pages', 'category'));
     }
 
     /**

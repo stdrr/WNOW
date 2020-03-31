@@ -30,11 +30,11 @@ class HomeController extends Controller
         $id = Auth::id();
         $pages = DB::table('pages')->join('recommendations', 'pages.pageid', '=', 'recommendations.pageid')
                                 ->where('recommendations.userid', $id)->latest('recommendations.id')->get();
+        $category = 'For_you';
         if(count($pages) == 0) 
         {
             $pages = DB::table('pages')->where('category', 'Politics')->latest('timestamp')->get();
-            return view('index', compact('pages'));
         }
-        return view('index', compact('pages'));
+        return view('index', compact('pages', 'category'));
     }
 }

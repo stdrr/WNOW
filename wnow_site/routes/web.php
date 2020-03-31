@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/news', 'HomeController@index')->name('home');
+Route::get('/news/For_you', 'HomeController@index')->name('home');
 
 Route::get('/news/{category}', 'PagesController@index');
 
