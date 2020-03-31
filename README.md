@@ -1,7 +1,7 @@
 # Getting started with "What's New On Wiki?"
 The list of operations to do in order to start the web service is enumerated below:
 
-### Setting up the database MySQL
+### Set up the database MySQL
 1. Make sure that a MySQL server is running on localhost
 2. Create a user named "wnow" with password "2020" 
 3. Create a new database named "wnow"
